@@ -8,6 +8,7 @@ export const data = [
     age: 39,
     name: "Hodge Walton",
     gender: "male",
+    country: "USA",
   },
   {
     id: "68e42753b9dd8430cf423255",
@@ -18,6 +19,7 @@ export const data = [
     age: 34,
     name: "Kelli Sanchez",
     gender: "female",
+    country: "El Salvador",
   },
   {
     id: "68e427539b82eeae4ac51f7c",
@@ -28,6 +30,7 @@ export const data = [
     age: 30,
     name: "Marjorie Calderon",
     gender: "female",
+    country: "Honduras",
   },
   {
     id: "68e42753985c5bfeeaa38085",
@@ -38,6 +41,7 @@ export const data = [
     age: 37,
     name: "Roth Noble",
     gender: "male",
+    country: "Nicaragua",
   },
   {
     id: "68e427536d480ecba068e616",
@@ -48,6 +52,7 @@ export const data = [
     age: 22,
     name: "Leslie Byrd",
     gender: "female",
+    country: "Costa Rica",
   },
   {
     id: "68e427536f5ef8f5ea181be0",
@@ -58,6 +63,7 @@ export const data = [
     age: 33,
     name: "Kirsten Wallace",
     gender: "female",
+    country: "Panama",
   },
   {
     id: "68e42753d74dabdbb2391dfd",
@@ -68,5 +74,19 @@ export const data = [
     age: 36,
     name: "Roslyn Manning",
     gender: "female",
+    country: "Cuba",
   },
+  {
+    id: "68e42753e1f3e2f0e2f3d1a7",
+    index: 7,
+    guid: "ab133ff6-e105-4fa4-8a35-4800b02f911s",
+    isActive: true,
+    picture: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQsVrjN0gS37W86fKs2VaBtSNggCKGMIRCUk0cEt1XvjGkkpCPkIqSqioZrUEPhIWBKyb6bjavWtkU-84U6m2iStLcKu3MVhtgN3VFq4UKD",
+    age: 19,
+    name: "Andres Lopez",
+    gender: "Male",
+    country: "Spain",
+  }
 ];
+
+

@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+/* ESTILOS PARA EL CONTENEDOR PRINCIPAL */
+.app-container {
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* TEMA CLARO */
+.app-container.light {
+  background-color: #f0f0f0; /* Un gris muy claro */
+  color: #242424; /* Texto oscuro */
+}
+
+/* TEMA OSCURO */
+.app-container.dark {
+  background-color: #242424; /* El color oscuro que ya usas */
+  color: rgba(255, 255, 255, 0.87); /* Texto claro */
+}
+
+/* Estilo para los botones, para que se vean bien en ambos temas */
+.app-container button {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.app-container.light button {
+  background-color: #e0e0e0;
+  color: black;
+  border: solid 1px #080000;
+}

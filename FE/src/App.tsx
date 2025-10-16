@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import "./App.css";
 
-const ListItem = (props) => {
+const ListItem = (props: any) => {
   console.log({ props });
   const { element } = props;
   return (
@@ -30,13 +30,17 @@ const ListItem = (props) => {
       <p>{element.name}</p>
       <p>{element.gender}</p>
       <p>{element.age}</p>
-      <img src={element.picture} />
+      <p>{element.country}</p>
+      <img src={element.picture} alt={element.name} />
     </div>
   );
 };
 
 function App() {
-  const [dataSet, setDataSet] = useState([]);
+  const [dataSet, setDataSet] = useState<any[]>([]);
+  const [filtro, setFiltro] = useState("todos");
+
+  const [modoOscuro, setModoOscuro] = useState(true);
 
   const extractData = async () => {
     const res = await fetch("http://localhost:3001/findUsers");
@@ -47,14 +51,37 @@ function App() {
   };
 
   const LIST = useMemo(() => {
-    return dataSet.length > 0
-      ? dataSet.map((el) => <ListItem element={el} />)
+    // AÑADE ESTA LÓGICA DE FILTRADO
+    const listaFiltrada = dataSet.filter((el: any) => {
+      if (filtro === "activos") {
+        return el.isActive === true;
+      }
+      if (filtro === "inactivos") {
+        return el.isActive === false;
+      }
+      // Si el filtro es "todos" o cualquier otra cosa, no filtres nada
+      return true;
+    });
+
+    return listaFiltrada.length > 0
+      ? listaFiltrada.map((el: any) => <ListItem key={el.id} element={el} />) // Añadido "key" para buenas prácticas
       : null;
-  }, [dataSet]);
+  }, [dataSet, filtro]); // <-- AHORA DEPENDE DE dataSet Y filtro
+
+  const temaCss = modoOscuro ? "dark" : "light";
 
   return (
-    <>
+    <div className={`app-container ${temaCss}`}>
+      <button onClick={() => setModoOscuro(!modoOscuro)}>
+        Cambiar a Modo {modoOscuro ? "Claro" : "Oscuro"}
+      </button>
+
       <h1>Lista de elementos</h1>
+      <div className="card">
+        <button onClick={() => setFiltro("todos")}>Todos</button>
+        <button onClick={() => setFiltro("activos")}>Activos</button>
+        <button onClick={() => setFiltro("inactivos")}>Inactivos</button>
+      </div>
       <section
         style={{
           display: "flex",
@@ -72,7 +99,7 @@ function App() {
       <div className="card">
         <button onClick={extractData}>Recuperar datos</button>
       </div>
-    </>
+    </div>
   );
 }
 
